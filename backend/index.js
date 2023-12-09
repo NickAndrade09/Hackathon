@@ -16,11 +16,15 @@ app.use(express.json());
 /* app.use('/products', productsRouter); prodcts from array or locally */
 /* app.use('/db', database); */ /* products from database  */
 
+const products = [
+    { id: 1, name: 'Product A', category: 'eletrônicos', price: '$20' }, { id: 2, name: 'Product B', category: 'moveis', price: '$35' }, { id: 3, name: 'Product C', category: 'limpeza', price: '$18' }
+]
+
 // configuramos a porta do servidor
 app.listen(PORT, () => {
     console.log(`app rodando na porta ${PORT}`);
 })
 
 app.get('/', (req, res) => {
-    res.send(console.log('Demora 5s para aparecer no corpo da resposta'));
+    res.json(products);
 })
